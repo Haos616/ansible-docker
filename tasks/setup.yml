@@ -1,0 +1,27 @@
+
+- name: Install apt-transport-https
+  apt: name=apt-transport-https
+
+- name: Install ca-certificates
+  apt: name=ca-certificates
+
+- name: Add Docker repository key
+  apt_key:
+    id: "{{ docker_repo_key_sig }}"
+    keyserver: "{{ docker_repo_key_url }}"
+    state: present
+
+- name: Add deb repo docker
+  apt_repository: repo="{{ docker_repo_deb }}"
+
+- name: Update sources list
+  apt: update_cache=yes
+
+- name: Install docker
+  apt: name=docker-engine
+
+- name: Started docker
+  service: name=docker state=started
+
+- name: Install Docker compose
+  pip: name=docker-compose
