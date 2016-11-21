@@ -1,0 +1,3 @@
+docker_repo_deb: 'deb https://apt.dockerproject.org/repo {{ ansible_distribution|lower }}-{{ ansible_distribution_release }} main'
+docker_repo_key_url: 'hkp://p80.pool.sks-keyservers.net:80'
+docker_repo_key_sig: '58118E89F3A912897C070ADBF76221572C52609D'
