@@ -1,3 +1,17 @@
 docker_repo_deb: 'deb https://apt.dockerproject.org/repo {{ ansible_distribution|lower }}-{{ ansible_distribution_release }} main'
 docker_repo_key_url: 'hkp://p80.pool.sks-keyservers.net:80'
 docker_repo_key_sig: '58118E89F3A912897C070ADBF76221572C52609D'
+
+docker_hub_reauthorize: "false"
+
+docker_build_version_latest: "true"
+docker_build_dockerfile: "Dockerfile"
+docker_build_pull: "no"
+
+docker_run_name: "{{ docker_build_name }}-build"
+docker_run_detach: "false"
+docker_run_command: ""
+docker_run_volumes: []
+docker_run_envs: []
+
+docker_latest_tag: 'latest'
