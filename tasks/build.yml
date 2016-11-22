@@ -1,0 +1,26 @@
+- assert:
+    that:
+     - "docker_build_name is defined"
+     - "docker_build_path is defined"
+     - "docker_build_version is defined"
+
+#- debug: var=playbook_dir
+
+- name: "Build image {{ docker_build_name }}:latest"
+  docker_image:
+    path: "{{ docker_build_path }}"
+    dockerfile: "{{ docker_build_dockerfile }}"
+    name: "{{ docker_build_name }}"
+    tag: "{{ docker_latest_tag }}"
+    force: yes
+    pull: "{{ docker_build_pull }}"
+  when: docker_build_version_latest
+
+- name: "Build image {{ docker_build_name }}:{{ docker_build_version }}"
+  docker_image:
+    path: "{{ docker_build_path }}"
+    dockerfile: "{{ docker_build_dockerfile }}"
+    name: "{{ docker_build_name }}"
+    tag: "{{ docker_build_version }}"
+    force: yes
+    pull: "{{ docker_build_pull }}"
