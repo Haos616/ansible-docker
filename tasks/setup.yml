@@ -7,6 +7,12 @@
 - name: Install ca-certificates
   apt: name=ca-certificates
 
+- name: Install pip
+  apt: name=python-pip
+
+- name: Update pip
+  pip: name=pip state=latest
+
 - name: Add Docker repository key
   apt_key:
     id: "{{ docker_repo_key_sig }}"
