@@ -11,3 +11,4 @@
     detach: "{{ docker_run_detach }}"
     env: "{{ docker_run_envs }}"
     command: "{{ docker_run_command }}"
+  register: bulid_container
