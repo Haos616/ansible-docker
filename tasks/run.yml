@@ -8,7 +8,7 @@
     name: "{{ docker_run_name }}"
     image: "{{ docker_build_name }}:{{ docker_build_version }}"
     volumes: "{{ docker_run_volumes }}"
+    #entrypoint: "{{ docker_run_entrypoint }}"
     detach: "{{ docker_run_detach }}"
     env: "{{ docker_run_envs }}"
     command: "{{ docker_run_command }}"
-  register: bulid_container
