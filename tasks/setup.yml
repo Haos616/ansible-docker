@@ -32,6 +32,7 @@
   service: name=docker state=started
 
 - name: Install Docker compose
-  pip:
-    name: docker-compose
-    version: "{{ docker_compose_version }}"
+  apt: name=docker-compose
+#  pip:
+#    name: docker-compose
+#    version: "{{ docker_compose_version }}"
