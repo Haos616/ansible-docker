@@ -16,7 +16,7 @@
 - name: Add Docker repository key
   apt_key:
     id: "{{ docker_repo_key_sig }}"
-    keyserver: "{{ docker_repo_key_url }}"
+    url: "{{ docker_repo_key_url }}"
     state: present
 
 - name: Add deb repo docker
@@ -26,10 +26,12 @@
   apt: update_cache=yes
 
 - name: Install docker
-  apt: name=docker-engine
+  apt: name=docker-ce
 
 - name: Started docker
   service: name=docker state=started
 
 - name: Install Docker compose
-  pip: name=docker-compose
+  pip:
+    name: docker-compose
+    version: "{{ docker_compose_version }}"
