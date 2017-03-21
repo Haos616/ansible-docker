@@ -8,13 +8,6 @@ docker_build_version_latest: "true"
 docker_build_dockerfile: "Dockerfile"
 docker_build_pull: "no"
 
-docker_run_entrypoint: "/code/docker-entrypoint.sh"
-docker_run_name: "run-build-{{ docker_build_name.split('/')[-1] }}"
-docker_run_detach: "false"
-docker_run_command: ""
-docker_run_volumes: []
-docker_run_envs: []
-
 docker_latest_tag: 'latest'
 
 docker_service_name: "{{ project_name }}"

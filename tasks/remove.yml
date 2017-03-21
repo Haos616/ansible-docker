@@ -1,8 +1,0 @@
-- assert:
-    that:
-     - "docker_build_name is defined"
-
-- name: Remove container {{ docker_run_name }}
-  docker_container:
-    name: "{{ docker_run_name }}"
-    state: absent
