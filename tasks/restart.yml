@@ -1,9 +1,0 @@
-- name: "Stop {{ docker_run_name }}"
-  docker_container:
-    name: "{{ docker_run_name }}"
-    state: stopped
-
-- name: "Start {{ docker_run_name }}"
-  docker_container:
-    name: "{{ docker_run_name }}"
-    state: started
