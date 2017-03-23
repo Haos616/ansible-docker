@@ -31,7 +31,18 @@
 - name: Started docker
   service: name=docker state=started
 
+- name: Install docker for python
+  pip:
+    name: docker
+
 - name: Install Docker compose
   pip:
     name: docker-compose
     version: "{{ docker_compose_version }}"
+
+- name: Install Docker ctop
+  get_url:
+    url: "https://github.com/bcicen/ctop/releases/download/v{{ docker_ctop_version }}/ctop-{{ docker_ctop_version }}-linux-amd64"
+    dest: /usr/local/bin/ctop
+    mode: 0755
+    checksum: "{{ docker_ctop_checksum }}"
