@@ -4,4 +4,4 @@ docker_repo_key_sig: '0EBFCD88'
 
 docker_hub_reauthorize: "false"
 
-#docker_compose_version: "1.11.2"
+docker_compose_version: "1.11.2"
