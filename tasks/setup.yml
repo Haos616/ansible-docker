@@ -7,12 +7,6 @@
 - name: Install ca-certificates
   apt: name=ca-certificates
 
-- name: Install pip
-  apt: name=python-pip
-
-- name: Update pip
-  pip: name=pip state=latest
-
 - name: Add Docker repository key
   apt_key:
     id: "{{ docker_repo_key_sig }}"
@@ -31,18 +25,21 @@
 - name: Started docker
   service: name=docker state=started
 
+- name: Install pip
+  apt: name=python-pip
+
+- name: Update pip
+  pip: name=pip state=latest
+
 - name: Install docker for python
   pip:
     name: docker
 
-- name: Install Docker compose
-  pip:
-    name: docker-compose
-    version: "{{ docker_compose_version }}"
-
-- name: Install Docker ctop
+- name: Setup Docker compose binary
   get_url:
-    url: "https://github.com/bcicen/ctop/releases/download/v{{ docker_ctop_version }}/ctop-{{ docker_ctop_version }}-linux-amd64"
-    dest: /usr/local/bin/ctop
+    url: "{{ docker_compose_url }}"
+    dest: "{{ docker_compose_bin }}"
+    owner: root
+    group: root
     mode: 0755
-    checksum: "{{ docker_ctop_checksum }}"
+    checksum: "{{ docker_compose_checksum }}"

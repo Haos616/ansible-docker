@@ -1,8 +1,8 @@
 - assert:
     that:
-     - "docker_hub_host is defined"
-     - "docker_hub_username is defined"
-     - "docker_hub_password is defined"
+      - "docker_hub_host is defined"
+      - "docker_hub_username is defined"
+      - "docker_hub_password is defined"
 
 - name: Log into {{ docker_hub_host }} registry
   docker_login:
