@@ -4,6 +4,7 @@ docker_repo_key_sig: '0EBFCD88'
 
 docker_hub_reauthorize: "false"
 
-docker_compose_version: "1.11.2"
-docker_ctop_version: "0.5"
-docker_ctop_checksum: "sha256:5313c4e2f98639cce53545762f0b65f3db977ae764a9acb2fb15928713b8cde0"
+docker_compose_bin: "/usr/local/bin/docker-compose"
+docker_compose_version: "1.24.1"
+docker_compose_checksum: "sha256:cfb3439956216b1248308141f7193776fcf4b9c9b49cbbe2fb07885678e2bb8a"
+docker_compose_url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_userspace_architecture }}"
