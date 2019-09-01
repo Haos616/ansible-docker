@@ -6,6 +6,10 @@ docker_hub_reauthorize: "false"
 
 docker_config_use: false
 docker_config_template: "daemon.json"
+docker_deamon_configs:
+  default-address-pools:
+      - base: "10.10.0.0/16"
+        size: 24
 
 docker_compose_bin: "/usr/local/bin/docker-compose"
 docker_compose_version: "1.24.1"
