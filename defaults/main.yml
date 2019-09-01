@@ -4,6 +4,9 @@ docker_repo_key_sig: '0EBFCD88'
 
 docker_hub_reauthorize: "false"
 
+docker_config_use: false
+docker_config_template: "daemon.json"
+
 docker_compose_bin: "/usr/local/bin/docker-compose"
 docker_compose_version: "1.24.1"
 docker_compose_checksum: "sha256:cfb3439956216b1248308141f7193776fcf4b9c9b49cbbe2fb07885678e2bb8a"

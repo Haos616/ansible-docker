@@ -25,6 +25,18 @@
 - name: Started docker
   service: name=docker state=started
 
+- name: Generate Docker config
+  template:
+    src: "{{ docker_config_template }}"
+    dest: "/etc/docker/daemon.json"
+    owner: root
+    group: root
+    mode: 0744
+  when:
+    - docker_config_use
+  notify:
+    - restart docker
+
 - name: Install pip
   apt: name=python-pip
 
