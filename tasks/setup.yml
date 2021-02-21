@@ -7,6 +7,15 @@
 - name: Install ca-certificates
   apt: name=ca-certificates
 
+- name: Install curl
+  apt: name=curl
+
+- name: Install gnupg-agent
+  apt: name=gnupg-agent
+
+- name: Install software-properties-common
+  apt: name=software-properties-common
+
 - name: Add Docker repository key
   apt_key:
     id: "{{ docker_repo_key_sig }}"
