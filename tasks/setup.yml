@@ -46,16 +46,6 @@
 - name: Started docker
   service: name=docker state=started
 
-- name: Install pip
-  apt: name=python-pip
-
-- name: Update pip
-  pip: name=pip state=latest
-
-- name: Install docker for python
-  pip:
-    name: docker
-
 - name: Setup Docker compose binary
   get_url:
     url: "{{ docker_compose_url }}"
