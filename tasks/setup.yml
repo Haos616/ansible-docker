@@ -28,6 +28,12 @@
 - name: Update sources list
   apt: update_cache=yes
 
+- name: Install docker
+  apt: name=docker-ce
+
+- name: Started docker
+  service: name=docker state=started
+
 - name: Generate Docker config
   template:
     src: "{{ docker_config_template }}"
@@ -39,12 +45,6 @@
     - docker_config_use
   notify:
     - restart docker
-
-- name: Install docker
-  apt: name=docker-ce
-
-- name: Started docker
-  service: name=docker state=started
 
 - name: Setup Docker compose binary
   get_url:
